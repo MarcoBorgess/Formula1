@@ -1,5 +1,5 @@
 
-fetch('http://ergast.com/api/f1/2022.json').then(function(response) {
+fetch('https://ergast.com/api/f1/2022.json').then(function(response) {
   response.json().then(function(data) {
     var races = data.MRData.RaceTable.Races;
     races.every(element => {
