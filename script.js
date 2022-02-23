@@ -40,8 +40,6 @@ fetch('https://ergast.com/api/f1/2022.json').then(function(response) {
 }).catch(function(err) {
   console.error('Failed retrieving information', err);
 });
-
-
 /*
 
 date: "2022-03-20"
