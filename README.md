@@ -1,3 +1,3 @@
 # Formula 1 Countdown
 
-Time until next Formula 1 GrandPrix
+Temporizador até o próximo Grand Prix de Formula 1

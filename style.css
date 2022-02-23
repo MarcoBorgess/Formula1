@@ -30,7 +30,10 @@ section {
     padding-top: 30vh;
 }
 .info {
-    padding-top: 15vh;
+    padding: 0 0 0 15vh;
+}
+#about {
+    font-size: 32px;
 }
 #timer {
     font-size: 144px;

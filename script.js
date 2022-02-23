@@ -31,7 +31,22 @@ fetch('https://ergast.com/api/f1/2022.json').then(function(response) {
                     document.getElementById("desc").innerHTML = "o " + element.raceName;
                 }
             }, 1000);
-            
+            const url = "https://en.wikipedia.org/w/api.php?" +
+            new URLSearchParams({
+                origin: "*",
+                action: "parse",
+                page: element.raceName,
+                format: "json",
+                wrapoutputclass: "infobox",
+            });
+            fetch(url).then(function(response) {
+              response.json().then(function(data) {
+                console.log(data.parse.text["*"]);
+                // console.log(data);
+              });
+            }).catch(function(err) {
+              console.error('Failed retrieving information', err);
+            });
 
             return false;
         }else return true;
@@ -40,13 +55,4 @@ fetch('https://ergast.com/api/f1/2022.json').then(function(response) {
 }).catch(function(err) {
   console.error('Failed retrieving information', err);
 });
-/*
 
-date: "2022-03-20"
-raceName: "Bahrain Grand Prix"
-round: "1"
-season: "2022"
-time: "15:00:00Z"
-url: "https://en.wikipedia.org/wiki/2022_Bahrain_Grand_Prix"
-
-*/
