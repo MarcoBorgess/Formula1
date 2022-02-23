@@ -22,15 +22,16 @@ fetch('https://ergast.com/api/f1/2022.json').then(function(response) {
                 // Display the result in the element with id="timer"
                 document.getElementById("timer").innerHTML = days + "d " + hours + "h "
                 + minutes + "m " + seconds + "s ";
+                document.getElementById("desc").innerHTML = "até o " + element.raceName;
               
                 // If the count down is finished, write some text
                 if (distance < 0) {
                   clearInterval(x);
                   document.getElementById("timer").innerHTML = "É HOJE PORRA!";
+                    document.getElementById("desc").innerHTML = "o " + element.raceName;
                 }
             }, 1000);
-            console.log(element);
-            document.getElementById("desc").innerHTML = "até o " + element.raceName;
+            
 
             return false;
         }else return true;
