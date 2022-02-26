@@ -49,3 +49,14 @@ section {
     margin: 0;
     margin-top: -50px;
 }
+a:link, a:visited {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+  
+a:link:active, a:visited:active {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}

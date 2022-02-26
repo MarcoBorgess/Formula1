@@ -5,6 +5,7 @@ fetch('https://ergast.com/api/f1/2022.json').then(function(response) {
     races.every(element => {
         var now = new Date().getTime();
         var gpDate = new Date(element.date + 'T' + element.time).getTime();
+        const url = "https://en.wikipedia.org/wiki/" + element.raceName;
         if (gpDate > now){
             var x = setInterval(function() {
                 // Get today's date and time
@@ -22,31 +23,12 @@ fetch('https://ergast.com/api/f1/2022.json').then(function(response) {
                 // Display the result in the element with id="timer"
                 document.getElementById("timer").innerHTML = days + "d " + hours + "h "
                 + minutes + "m " + seconds + "s ";
-                document.getElementById("desc").innerHTML = "até o " + element.raceName;
-              
-                // If the count down is finished, write some text
-                if (distance < 0) {
-                  clearInterval(x);
-                  document.getElementById("timer").innerHTML = "É HOJE PORRA!";
-                    document.getElementById("desc").innerHTML = "o " + element.raceName;
-                }
+                document.getElementById("desc").innerHTML = 'até o ' + '<a href="" target="_blank" id="raceName"></a>';
+                document.getElementById("raceName").innerHTML = element.raceName;
+                document.getElementById("raceName").href = url;
             }, 1000);
-            const url = "https://en.wikipedia.org/w/api.php?" +
-            new URLSearchParams({
-                origin: "*",
-                action: "parse",
-                page: element.raceName,
-                format: "json",
-                wrapoutputclass: "infobox",
-            });
-            fetch(url).then(function(response) {
-              response.json().then(function(data) {
-                console.log(data.parse.text["*"]);
-                // console.log(data);
-              });
-            }).catch(function(err) {
-              console.error('Failed retrieving information', err);
-            });
+            
+            
 
             return false;
         }else return true;
