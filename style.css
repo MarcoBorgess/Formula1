@@ -29,25 +29,19 @@ section {
 .container {
     padding-top: 30vh;
 }
-.info {
-    padding: 0 0 0 15vh;
-}
-#about {
-    font-size: 32px;
-}
 #timer {
-    font-size: 144px;
+    font-size: 9vw;
     font-weight: 700;
     color: white;
     margin: 0;
 }
 #desc {
-    font-size: 44px;
+    font-size: 3vw;
     font-weight: 500;
     color: white;
     text-align: right;
     margin: 0;
-    margin-top: -50px;
+    margin-top: -3vw;
 }
 a:link, a:visited {
     color: white;
