@@ -5,7 +5,7 @@ fetch('https://ergast.com/api/f1/'+year+'.json').then(function(response) {
     var races = data.MRData.RaceTable.Races;
     races.every(element => {
         var now = new Date().getTime();
-        var gpDate = new Date(element.date + 'T' + element.time).getTime();
+        var gpDate = new Date(element.date + 'T' + (element.time ?? '00:00:00')).getTime();
         const url = "https://en.wikipedia.org/wiki/" + element.raceName;
         if (gpDate > now){
             var x = setInterval(function() {
